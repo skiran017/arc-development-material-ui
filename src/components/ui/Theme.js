@@ -32,5 +32,5 @@ export default createMuiTheme({
   },
   status: {
     danger: 'orange',
-  },
+  }
 });
