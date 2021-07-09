@@ -250,7 +250,7 @@ function Header(props) {
       </Tabs>
       <Button
         component={Link}
-        href="/estimate"
+        to="/estimate"
         variant="contained"
         color="secondary"
         className={classes.button}
