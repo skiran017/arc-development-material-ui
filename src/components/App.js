@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { ThemeProvider } from '@material-ui/styles';
+import React, { useState } from "react";
+import { ThemeProvider } from "@material-ui/styles";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import theme from "./ui/Theme";
+import Header from "./ui/Header";
+import Footer from "./ui/Footer";
+import LandingPage from "./LandingPage";
+import Services from "./Services";
+import CustomSoftware from "./CustomSoftware";
+import MobileApps from "./MobileApps";
+import Websites from "./Websites";
+import Revolution from "./Revolution";
+import About from "./About";
+import Contact from "./Contact";
+import Estimate from "./Estimate";
 
-import Header from './ui/Header';
-import Footer from './ui/Footer';
-import theme from './ui/Theme';
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [value, setValue] = useState(0);
@@ -22,39 +31,104 @@ function App() {
           <Route
             exact
             path="/"
-            component={() => <div style={{ height: '2000px' }}>Home</div>}
+            render={props => (
+              <LandingPage
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
           />
-          <Route exact path="/services" component={() => <div>Services</div>} />
+          <Route
+            exact
+            path="/services"
+            render={props => (
+              <Services
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
+          />
           <Route
             exact
             path="/customsoftware"
-            component={() => <div>Custom Software</div>}
+            render={props => (
+              <CustomSoftware
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
           />
           <Route
             exact
             path="/mobileapps"
-            component={() => <div>Mobile Apps</div>}
+            render={props => (
+              <MobileApps
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
           />
-          <Route exact path="/websites" component={() => <div>Websites</div>} />
+          <Route
+            exact
+            path="/websites"
+            render={props => (
+              <Websites
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
+          />
           <Route
             exact
             path="/revolution"
-            component={() => <div>The Revolution</div>}
+            render={props => (
+              <Revolution
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
           />
-          <Route exact path="/about" component={() => <div>About Us</div>} />
+          <Route
+            exact
+            path="/about"
+            render={props => (
+              <About
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
+          />
           <Route
             exact
             path="/contact"
-            component={() => <div>Contact us</div>}
+            render={props => (
+              <Contact
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
           />
-          <Route exact path="/estimate" component={() => <div>Estimate</div>} />
+          <Route
+            exact
+            path="/estimate"
+            render={props => (
+              <Estimate
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
+          />
         </Switch>
-        <Footer
-          value={value}
-          setValue={setValue}
-          selectedIndex={selectedIndex}
-          setSelectedIndex={setSelectedIndex}
-        />
+        <Footer setValue={setValue} setSelectedIndex={setSelectedIndex} />
       </BrowserRouter>
     </ThemeProvider>
   );
